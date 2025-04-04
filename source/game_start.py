@@ -46,6 +46,7 @@ class Hub:
             elif choice == 4:
                 Hub.display_credits()
             elif choice == 6:
+                Hub.clear_screen()
                 play.Round.cheat_mode()
             else:
                 print("Invalid choice. Please select a valid option.")

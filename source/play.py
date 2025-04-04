@@ -94,6 +94,7 @@ class Round:
             for col in range(length):
                 print(f" {traps[row][col]} ", end="")  # Print trap values (0 or 1)
             print()
+        game_start.Hub.start()
 
     @staticmethod
     def game()->None:
