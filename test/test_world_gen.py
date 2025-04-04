@@ -7,7 +7,6 @@ sys.path.append(source_dir)
 
 from world_gen import Map
 
-# Assuming the Map class is already defined in the scope
 
 class TestMapGeneration(unittest.TestCase):
 

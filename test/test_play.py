@@ -1,11 +1,12 @@
-# test_play_mechanics.py
 import unittest
 from unittest.mock import patch
 import os
 import sys
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 source_dir = os.path.join(current_dir, '..', 'source')
 sys.path.append(source_dir)
+
 from play import (Round)
 
 class TestPlayMechanics(unittest.TestCase):
