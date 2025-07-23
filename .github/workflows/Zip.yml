@@ -31,6 +31,6 @@ jobs:
 
         
       - name: Show artifact hint with GitHub Run URL
-          run: |
+        run: |
           echo "🔗 Download-Link (manuell öffnen):"
           echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
