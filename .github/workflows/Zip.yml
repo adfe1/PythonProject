@@ -1,0 +1,30 @@
+name: Zip
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Zip_Compress'
+        required: true
+        default: 'staging'
+
+jobs:
+  zip-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create ZIP with full folder structure
+        run: |
+          mkdir -p con
+          zip -r con/src-${{ github.event.inputs.environment }}.zip source test
+
+      - name: Show ZIP result
+        run: ls -lh con
+
+      - name: Upload ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zipped-src
+          path: con/src-${{ github.event.inputs.environment }}.zip
