@@ -18,7 +18,7 @@ jobs:
       - name: Create ZIP with full folder structure
         run: |
           mkdir -p con
-          zip -r lwe_thx_envoy_dev_${{ github.event.inputs.environment }}.zip configuration src
+          zip -r lwe_thx_envoy_dev_staging.zip . -i configuration src 
 
       - name: Show ZIP result
         run: ls -lh con
