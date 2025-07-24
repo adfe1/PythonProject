@@ -28,9 +28,3 @@ jobs:
         with:
           name: zipped-src
           path: con/src-${{ github.event.inputs.environment }}.zip
-
-        
-      - name: Show artifact hint with GitHub Run URL
-        run: |
-          echo "🔗 Download-Link (manuell öffnen):"
-          echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
