@@ -1,12 +1,8 @@
 name: Zip
 
 on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Zip_Compress'
-        required: true
-        default: 'staging'
+  release:
+    types: [created]
 
 jobs:
   zip-files:
@@ -18,13 +14,15 @@ jobs:
       - name: Create ZIP with full folder structure
         run: |
           mkdir -p con
-          zip -r con/src-${{ github.event.inputs.environment }}.zip source test Dokumentation
+          zip -r lwe_thx_envoy_dev_${{ github.event.inputs.environment }}.zip configuration src
 
       - name: Show ZIP result
         run: ls -lh con
 
-      - name: Upload ZIP artifact
-        uses: actions/upload-artifact@v4
+     
+      - name: Upload ZIP to draft release
+        uses: softprops/action-gh-release@v2
         with:
-          name: zipped-src
-          path: con/src-${{ github.event.inputs.environment }}.zip
+          files: lwe_thx_envoy_dev_${{ github.event.inputs.environment }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
