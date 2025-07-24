@@ -1,8 +1,12 @@
 name: Zip
 
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Zip_Compress'
+        required: true
+        default: 'staging'
 
 jobs:
   zip-files:
